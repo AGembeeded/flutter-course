@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 //Internal imports
-import './product_manager.dart';
+import './pages/home.dart';
 
 // Dart is a typed language
 // Use explicit types definition
@@ -28,13 +28,7 @@ class MyApp extends StatelessWidget {
           brightness: Brightness.light,
           primarySwatch: Colors.deepOrange,
           accentColor: Colors.deepPurple),
-      home: Scaffold(
-        appBar: AppBar(
-          title: Text('EasyList Test'),
-        ),
-        //<Widget> is not mandatory
-        body: ProductManager(),
-      ),
+      home: HomePage(),
     ); // used in every app, wrapper for entire app
   }
 }

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import './pages/product.dart';
 
 class Products extends StatelessWidget {
   final List<String> products; //final tells that products will not be changed
@@ -10,7 +11,16 @@ class Products extends StatelessWidget {
       child: Column(
         children: <Widget>[
           Image.asset('assets/food.jpg'),
-          Text(products[index])
+          Text(products[index]),
+          ButtonBar(
+            alignment: MainAxisAlignment.center,
+            children: <Widget>[
+              FlatButton(
+                child: Text('Details'),
+                onPressed: () => Navigator.push(context, MaterialPageRoute(builder: (BuildContext context) => ProductPage(),),),
+              )
+            ],
+          )
         ],
       ),
     );
@@ -27,6 +37,9 @@ class Products extends StatelessWidget {
       );
     } else {
       productCards = Center(child: Text('No products found, please add some'));
+      //If there are no products and we don't want to render anything, we still need to return a widget
+      // it can be an empty Container, it will not ocupy any space on the screen
+      // productCards = Container();
     }
     return productCards;
   }
