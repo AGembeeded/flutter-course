@@ -17,7 +17,12 @@ class Products extends StatelessWidget {
             children: <Widget>[
               FlatButton(
                 child: Text('Details'),
-                onPressed: () => Navigator.push(context, MaterialPageRoute(builder: (BuildContext context) => ProductPage(),),),
+                onPressed: () => Navigator.push(
+                      context,
+                      MaterialPageRoute( // Here we are "telling" the route how to build a new page
+                        builder: (BuildContext context) => ProductPage(),
+                      ),
+                    ),
               )
             ],
           )
