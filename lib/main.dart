@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 
+//Internal imports
+import './product_manager.dart';
+
 // Dart is a typed language
 // Use explicit types definition
 
@@ -12,6 +15,7 @@ void main() {
 class MyApp extends StatelessWidget {
   // extends is inheritance
   // Properties
+
   // Methods
 
   // Flutter uses the build method to draw a widget
@@ -20,30 +24,16 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     // here the Widget is definition of a type that build should return
     return MaterialApp(
+      theme: ThemeData(
+          brightness: Brightness.light,
+          primarySwatch: Colors.deepOrange,
+          accentColor: Colors.deepPurple),
       home: Scaffold(
         appBar: AppBar(
-          title: Text('EasyList'),
+          title: Text('EasyList Test'),
         ),
         //<Widget> is not mandatory
-        body: Column(
-          children: <Widget>[
-            Container(
-              margin: EdgeInsets.all(10.0),
-              child: RaisedButton(
-                onPressed: () {},
-                child: Text('Add Product'),
-              ),
-            ),
-            Card(
-              child: Column(
-                children: <Widget>[
-                  Image.asset('assets/food.jpg'),
-                  Text('Food Paradise')
-                ],
-              ),
-            ),
-          ],
-        ),
+        body: ProductManager(),
       ),
     ); // used in every app, wrapper for entire app
   }
