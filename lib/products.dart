@@ -18,10 +18,16 @@ class Products extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // Define a variable that is going to be our widget
+    Widget productCard = Center(child: Text('No products found, please add some'));
 
-    return products.length > 0 ? ListView.builder( // this is an inline if statement, this is called ternary expression
+    // If there are some products, redefine the productCard
+    if (products.length > 0) {
+      productCard = ListView.builder( // this is an inline if statement, this is called ternary expression
       itemBuilder: _buildProductItem,
       itemCount: products.length,
-    ) : Center(child: Text('No products found, please add some'));// this ':' means else 
+    );
+    }
+    return productCard; 
   }
 }
