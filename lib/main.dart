@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 //Internal imports
-import './pages/home.dart';
+import './pages/auth.dart';
 
 // Dart is a typed language
 // Use explicit types definition
@@ -28,7 +28,7 @@ class MyApp extends StatelessWidget {
           brightness: Brightness.light,
           primarySwatch: Colors.deepOrange,
           accentColor: Colors.deepPurple),
-      home: HomePage(),
+      home: AuthPage(),
     ); // used in every app, wrapper for entire app
   }
 }
