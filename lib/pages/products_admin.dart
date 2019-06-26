@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
+import './products.dart';
 
-import '../product_manager.dart'; // two dots are to go level up in folder structure
-import './products_admin.dart';
-
-class ProductsPage extends StatelessWidget {
+class ProductsAdminPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
@@ -16,12 +14,12 @@ class ProductsPage extends StatelessWidget {
               title: Text('Choose'),
             ),
             ListTile(
-              title: Text('Manage Products'),
+              title: Text('All Products'),
               onTap: () {
                 Navigator.pushReplacement(
                   context,
                   MaterialPageRoute(
-                    builder: (BuildContext context) => ProductsAdminPage(),
+                    builder: (BuildContext context) => ProductsPage(),
                   ),
                 );
               },
@@ -30,10 +28,13 @@ class ProductsPage extends StatelessWidget {
         ),
       ),
       appBar: AppBar(
-        title: Text('Easy List'),
+        title: Text('Manage Products'),
       ),
       //<Widget> is not mandatory
-      body: ProductManager(),
+      body: Center(
+        child: Text('Manage your Products'),
+      ),
     );
   }
 }
+
