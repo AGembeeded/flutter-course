@@ -1,9 +1,15 @@
 import 'package:flutter/material.dart';
 
 import '../product_manager.dart'; // two dots are to go level up in folder structure
-import './products_admin.dart';
 
 class ProductsPage extends StatelessWidget {
+  final List<Map<String, String>> products;
+  final Function addProduct;
+  final Function deleteProduct;
+
+  //Constructor
+  ProductsPage(this.products, this.addProduct, this.deleteProduct);
+
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
@@ -18,12 +24,7 @@ class ProductsPage extends StatelessWidget {
             ListTile(
               title: Text('Manage Products'),
               onTap: () {
-                Navigator.pushReplacement(
-                  context,
-                  MaterialPageRoute(
-                    builder: (BuildContext context) => ProductsAdminPage(),
-                  ),
-                );
+                Navigator.pushReplacementNamed(context, '/admin');
               },
             )
           ],
@@ -33,7 +34,7 @@ class ProductsPage extends StatelessWidget {
         title: Text('Easy List'),
       ),
       //<Widget> is not mandatory
-      body: ProductManager(),
+      body: ProductManager(products, addProduct, deleteProduct),
     );
   }
 }
