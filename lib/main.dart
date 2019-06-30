@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import './pages/products_admin.dart';
 import './pages/products.dart';
 import './pages/product.dart';
+import './pages/auth.dart';
 
 // Dart is a typed language
 // Use explicit types definition
@@ -24,9 +25,9 @@ class MyApp extends StatefulWidget {
 
 
 class _MyAppState extends State<MyApp> {
-  List<Map<String, String>> _products = [];
+  List<Map<String, dynamic>> _products = [];
 
-  void _addProduct(Map<String, String> product) {
+  void _addProduct(Map<String, dynamic> product) {
     setState(() {
       _products.add(product);
     });
@@ -48,8 +49,9 @@ class _MyAppState extends State<MyApp> {
           accentColor: Colors.deepPurple),
       //home: AuthPage(),
       routes: {
-        '/': (BuildContext context) => ProductsPage(_products, _addProduct, _deleteProduct), // '/' is reserved for home page, if set in routes, home: can't be used
-        '/admin': (BuildContext context) => ProductsAdminPage(),
+        '/': (BuildContext context) => AuthPage(), // '/' is reserved for home page, if set in routes, home: can't be used
+        '/products': (BuildContext context) => ProductsPage(_products),
+        '/admin': (BuildContext context) => ProductsAdminPage(_addProduct, _deleteProduct),
       },
       // With on generate routes, pages that are not in routes can be handeled
       onGenerateRoute: (RouteSettings settings) {
@@ -70,7 +72,7 @@ class _MyAppState extends State<MyApp> {
       //onUnknownRoute runs if OnGenerateRoute returns null
       onUnknownRoute: (RouteSettings settings) {
           return MaterialPageRoute(
-            builder: (BuildContext context) => ProductsPage(_products, _addProduct, _deleteProduct),
+            builder: (BuildContext context) => ProductsPage(_products),
           );
       }
     ); // used in every app, wrapper for entire app

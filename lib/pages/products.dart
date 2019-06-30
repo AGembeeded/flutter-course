@@ -3,12 +3,10 @@ import 'package:flutter/material.dart';
 import '../product_manager.dart'; // two dots are to go level up in folder structure
 
 class ProductsPage extends StatelessWidget {
-  final List<Map<String, String>> products;
-  final Function addProduct;
-  final Function deleteProduct;
+  final List<Map<String, dynamic>> products;
 
   //Constructor
-  ProductsPage(this.products, this.addProduct, this.deleteProduct);
+  ProductsPage(this.products);
 
   @override
   Widget build(BuildContext context) {
@@ -34,7 +32,7 @@ class ProductsPage extends StatelessWidget {
         title: Text('Easy List'),
       ),
       //<Widget> is not mandatory
-      body: ProductManager(products, addProduct, deleteProduct),
+      body: ProductManager(products),
     );
   }
 }
